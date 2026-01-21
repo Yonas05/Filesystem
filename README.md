@@ -2,32 +2,32 @@
 
 This repository documents **AWS shared file storage services**, focusing on:
 
-- Amazon Elastic File System (EFS)
-- Amazon FSx
+- **Amazon Elastic File System (EFS)**
+- **Amazon FSx**
 
 Each storage service includes:
 - A clear architecture diagram
-- A dedicated README explaining the diagram and access flow
+- A dedicated README explaining the architecture and access flow
 
 ---
 
 ## Architecture Diagrams
 
 ### Amazon EFS
-- Diagram: `diagrams/efs/efs-architecture.png`
-- Documentation: `diagrams/efs/README.md`
+- 📄 Documentation: [diagrams/efs/README.md](diagrams/efs/README.md)
+- 🖼️ Architecture Diagram:
 
-### Amazon FSx
-- Diagram: `diagrams/fsx/fsx-architecture.png`
-- Documentation: `diagrams/fsx/README.md`
+![Amazon EFS Architecture](diagrams/efs/efs-architecture.png)
 
 ---
 
-## Purpose
+### Amazon FSx
+- 📄 Documentation: [diagrams/fsx/README.md](diagrams/fsx/README.md)
+- 🖼️ Architecture Diagram:
 
-This repository is designed for:
-- Cloud architecture learning
-- DevOps and AWS portfolios
-- Interview preparation
-- Clear system design reference
-# Filesystem
+![Amazon FSx Architecture](diagrams/fsx/fsx-architecture.png)
+
+---
+
+
+
