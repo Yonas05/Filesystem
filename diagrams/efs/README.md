@@ -1,7 +1,8 @@
 # Amazon EFS Architecture Diagram
 
-## Diagram File
-`efs-architecture.png`
+## Architecture Diagram
+
+![Amazon EFS Architecture](efs-architecture.png)
 
 ---
 
@@ -9,7 +10,7 @@
 
 This diagram illustrates how **Amazon Elastic File System (EFS)** provides
 shared file storage to multiple Linux-based compute resources across
-Availability Zones.
+multiple Availability Zones.
 
 ---
 
@@ -17,8 +18,8 @@ Availability Zones.
 
 - Multiple **EC2 instances** run in different Availability Zones
 - Each instance mounts the same EFS filesystem
-- Communication uses **NFS v4.1 (port 2049)**
-- EFS is managed and replicated automatically by AWS
+- Communication uses **NFS v4.1 (TCP port 2049)**
+- EFS is fully managed and automatically replicated by AWS
 
 ---
 
@@ -26,31 +27,33 @@ Availability Zones.
 
 1. EC2 instances are launched inside a VPC
 2. Security groups allow NFS traffic (TCP 2049)
-3. Instances mount EFS using a DNS endpoint
-4. All instances read and write to the same filesystem
+3. Instances mount EFS using an AWS-provided DNS endpoint
+4. All instances read from and write to the same shared filesystem
 
 ---
 
 ## Key Characteristics
 
-- Linux-only file system
+- Linux-based file system
 - Fully managed by AWS
-- Automatically scales storage
-- Multi-AZ availability by default
+- Automatically scales storage capacity
+- Highly available with Multi-AZ replication by default
 
 ---
 
 ## Typical Use Cases
 
 - Shared application content
-- Containers (EKS / ECS)
+- Container workloads (EKS / ECS)
 - CI/CD pipelines
 - Configuration and asset storage
+- Web servers requiring shared file access
 
 ---
 
 ## Design Considerations
 
-- Place EFS and EC2 in the same VPC
-- Use private subnets for security
-- Enable encryption in transit and at rest
+- Deploy EC2 instances and EFS in the same VPC
+- Use private subnets for improved security
+- Configure security groups carefully for NFS access
+- Enable encryption at rest and in transit
